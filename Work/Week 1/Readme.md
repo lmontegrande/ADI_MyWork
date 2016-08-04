@@ -4,9 +4,9 @@
 ![Workflow Diagram](http://heim.ifi.uio.no/gisle/staging2/drupalprimer/drupal/gl_git_f/git_localop.png)
 * `git pull`
 * Do some work
-* git add
-* git commit
-* git push
+* `git add`
+* `git commit`
+* `git push`
 
 ```java
 public static void main(String[] args) {
