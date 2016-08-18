@@ -6,10 +6,10 @@ package com.example.lmont.projectone;
 public class Task {
 
     public String name;
-    public String data;
+    public String about;
 
-    public Task(String name, String data) {
+    public Task(String name, String about) {
         this.name = name;
-        this.data = data;
+        this.about = about;
     }
 }

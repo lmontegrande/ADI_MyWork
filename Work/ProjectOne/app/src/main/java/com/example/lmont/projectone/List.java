@@ -7,5 +7,11 @@ import java.util.ArrayList;
  */
 public class List {
     String name;
+    String about;
     ArrayList<Task> tasks;
+
+    public List(String name, String about) {
+        this.name = name;
+        this.about = about;
+    }
 }
