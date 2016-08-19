@@ -72,6 +72,7 @@ public class TodoListAdapter extends BaseAdapter {
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                Toast.makeText(context, list.getName() + " Deleted", Toast.LENGTH_SHORT).show();
                 lists.remove(i);
                 notifyDataSetChanged();
                 return false;

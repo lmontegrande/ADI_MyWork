@@ -72,6 +72,7 @@ public class TasksListAdapter extends BaseAdapter {
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
+                Toast.makeText(context, thisTask.getName() + " Deleted", Toast.LENGTH_SHORT).show();
                 tasks.remove(i);
                 notifyDataSetChanged();
                 return false;

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -80,6 +81,7 @@ public class SecondActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         EditText nameEditText = (EditText) dialogView.findViewById(R.id.nameEditText);
                         EditText aboutEditText = (EditText) dialogView.findViewById(R.id.aboutEditText);
+                        Toast.makeText(SecondActivity.this, nameEditText.getText() + " Added", Toast.LENGTH_SHORT).show();
                         currentTodoList.tasks.add(new Task(nameEditText.getText().toString(), aboutEditText.getText().toString(), currentTodoList));
                         tasksListAdapter.notifyDataSetChanged();
                     }

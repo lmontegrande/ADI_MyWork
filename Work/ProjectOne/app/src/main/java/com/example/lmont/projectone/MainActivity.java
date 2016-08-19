@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         EditText nameEditText = (EditText) dialogView.findViewById(R.id.nameEditText);
                         EditText aboutEditText = (EditText) dialogView.findViewById(R.id.aboutEditText);
+                        Toast.makeText(MainActivity.this, nameEditText.getText() + " Added", Toast.LENGTH_SHORT).show();
                         todoListData.lists.add(new TodoList(nameEditText.getText().toString(), aboutEditText.getText().toString()));
                         todoListAdapter.notifyDataSetChanged();
                     }

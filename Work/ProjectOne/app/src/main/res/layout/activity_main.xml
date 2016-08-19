@@ -8,6 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
+    android:background="@drawable/arrows"
     tools:context="com.example.lmont.projectone.MainActivity">
 
     <FrameLayout
@@ -22,6 +23,7 @@
             android:layout_height="wrap_content"
             android:text="MyLists"
             android:textSize="30dp"
+            android:background="@android:color/holo_red_light"
             android:fontFamily="casual"/>
 
         <LinearLayout
@@ -49,6 +51,7 @@
     <ListView
         android:id="@+id/listsListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"/>
 
 </LinearLayout>
