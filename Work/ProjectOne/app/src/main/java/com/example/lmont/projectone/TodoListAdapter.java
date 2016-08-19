@@ -58,6 +58,7 @@ public class TodoListAdapter extends BaseAdapter {
 
         viewHolder.listName.setText(list.getName());
         viewHolder.listDetail.setText(list.getAbout());
+        viewHolder.listDate.setText(String.format("%1$tA %1$tb %1$td %1$tY at %1$tI:%1$tM %1$Tp", list.getmCalendar()));
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,11 +83,12 @@ public class TodoListAdapter extends BaseAdapter {
 
     private class ViewHolder {
 
-        public TextView listName, listDetail;
+        public TextView listName, listDetail, listDate;
 
         public ViewHolder(View view) {
             listName = (TextView) view.findViewById(R.id.listName);
             listDetail = (TextView) view.findViewById(R.id.listAbout);
+            listDate = (TextView) view.findViewById(R.id.listDate);
         }
     }
 }

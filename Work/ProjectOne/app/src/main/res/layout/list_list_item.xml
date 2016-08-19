@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/listName"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="30"
+        android:layout_weight="25"
         android:layout_margin="1dp"
         android:padding="10dp"
         android:background="@android:color/holo_blue_light"
         />
 
-    <TextView
-        android:id="@+id/listAbout"
+    <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="90"
-        android:layout_margin="1dp"
-        android:padding="10dp"
-        android:background="@android:color/holo_green_light"
-        />
+        android:layout_weight="75"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/listDate"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:layout_margin="1dp"
+            android:padding="10dp"
+            android:background="@android:color/holo_orange_light"
+            />
+
+        <TextView
+            android:id="@+id/listAbout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:layout_margin="1dp"
+            android:padding="10dp"
+            android:background="@android:color/holo_green_light"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

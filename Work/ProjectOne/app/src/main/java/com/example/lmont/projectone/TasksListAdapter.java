@@ -55,6 +55,7 @@ public class TasksListAdapter extends BaseAdapter {
 
         viewHolder.listName.setText(tasks.get(i).getName());
         viewHolder.listDetail.setText(tasks.get(i).getAbout());
+        viewHolder.listDate.setText(String.format("%1$tA %1$tb %1$td %1$tY at %1$tI:%1$tM %1$Tp", tasks.get(i).getmCalendar()));
 
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -70,11 +71,12 @@ public class TasksListAdapter extends BaseAdapter {
 
     private class ViewHolder {
 
-        public TextView listName, listDetail;
+        public TextView listName, listDetail, listDate;
 
         public ViewHolder(View view) {
             listName = (TextView) view.findViewById(R.id.listName);
             listDetail = (TextView) view.findViewById(R.id.listAbout);
+            listDate = (TextView) view.findViewById(R.id.listDate);
         }
     }
 }

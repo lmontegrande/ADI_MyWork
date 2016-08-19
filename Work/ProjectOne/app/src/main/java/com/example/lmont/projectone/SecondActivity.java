@@ -44,7 +44,7 @@ public class SecondActivity extends AppCompatActivity {
 
         int taskListNum = getIntent().getIntExtra("listNum", 0);
         currentTodoList = todoListData.lists.get(taskListNum);
-        headerTextView.setText(currentTodoList.name);
+        headerTextView.setText(currentTodoList.name + "\n" + String.format("%1$tb %1$td %1$tY", currentTodoList.getmCalendar()));
         tasksListAdapter = new TasksListAdapter(this, currentTodoList.tasks);
         listView.setAdapter(tasksListAdapter);
 
