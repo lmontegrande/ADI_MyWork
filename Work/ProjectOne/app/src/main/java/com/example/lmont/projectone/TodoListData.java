@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class TodoListData {
 
-    public ArrayList<List> lists = new ArrayList<>();
+    public ArrayList<TodoList> lists = new ArrayList<>();
 
     private static TodoListData ourInstance = new TodoListData();
 
@@ -16,7 +16,11 @@ public class TodoListData {
     }
 
     private TodoListData() {
+        lists = new ArrayList<>();
     }
 
+    public TodoList getTodoListAt(int i) {
+        return lists.get(i);
+    }
 
 }

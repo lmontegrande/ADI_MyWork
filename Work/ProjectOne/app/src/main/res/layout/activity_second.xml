@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,7 +16,7 @@
         android:layout_margin="20dp">
 
         <TextView
-            android:id="@+id/headerTextView"
+            android:id="@+id/headerTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="MyLists"
@@ -30,25 +29,24 @@
             android:layout_gravity="right"
             android:orientation="vertical">
             <Button
-                android:id="@+id/addListButton"
+                android:id="@+id/addTaskButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add List"
+                android:text="Add Task"
                 android:layout_gravity="right"
                 android:fontFamily="casual"/>
-            Button
-                android:id="@+id/viewListButton"
+            <Button
+                android:id="@+id/backToListsButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select List"
+                android:text="Back To Lists"
                 android:layout_gravity="right"
                 android:fontFamily="casual"/>
         </LinearLayout>
-
     </FrameLayout>
 
     <ListView
-        android:id="@+id/listsListView"
+        android:id="@+id/taskListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

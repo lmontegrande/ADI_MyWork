@@ -1,17 +1,18 @@
 package com.example.lmont.projectone;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
  * Created by lmont on 8/16/2016.
  */
-public class List {
-    String name;
-    String about;
+public class TodoList extends TodoItem {
     ArrayList<Task> tasks;
 
-    public List(String name, String about) {
+    public TodoList(String name, String about) {
         this.name = name;
         this.about = about;
+        this.iAmATask = false;
+        tasks = new ArrayList<>();
     }
 }

@@ -1,58 +1,71 @@
 package com.example.lmont.projectone;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
 
+    TodoList currentTodoList;
     TodoListData todoListData;
-    Button addListButton;
+    TextView headerTextView;
+    Button backButton, addButton;
     ListView listView;
-    TodoListAdapter todoListAdapter;
-    Context context;
+    TasksListAdapter tasksListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_second);
 
         setUp();
     }
 
     protected void setUp() {
-        context = this;
+
+        headerTextView = (TextView) findViewById(R.id.headerTextView2);
+        backButton = (Button) findViewById(R.id.backToListsButton);
+        addButton = (Button) findViewById(R.id.addTaskButton);
+        listView = (ListView) findViewById(R.id.taskListView);
         todoListData = TodoListData.getInstance();
-        addListButton = (Button) findViewById(R.id.addListButton);
-        listView = (ListView) findViewById(R.id.listsListView);
-        setUpList();
-        setButton();
-        setUpMockData();
+
+        int taskListNum = getIntent().getIntExtra("listNum", 0);
+        currentTodoList = todoListData.lists.get(taskListNum);
+        headerTextView.setText(currentTodoList.name);
+        tasksListAdapter = new TasksListAdapter(this, currentTodoList.tasks);
+        listView.setAdapter(tasksListAdapter);
+
+        setUpButtons();
     }
 
-    protected void setButton() {
-        addListButton.setOnClickListener(new View.OnClickListener() {
+    protected void setUpButtons() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialog();
             }
         });
-    }
-
-    protected void setUpList() {
-        todoListAdapter = new TodoListAdapter(this, todoListData.lists);
-        listView.setAdapter(todoListAdapter);
     }
 
     protected void showDialog() {
@@ -67,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         EditText nameEditText = (EditText) dialogView.findViewById(R.id.nameEditText);
                         EditText aboutEditText = (EditText) dialogView.findViewById(R.id.aboutEditText);
-                        todoListData.lists.add(new TodoList(nameEditText.getText().toString(), aboutEditText.getText().toString()));
-                        todoListAdapter.notifyDataSetChanged();
+                        currentTodoList.tasks.add(new Task(nameEditText.getText().toString(), aboutEditText.getText().toString(), currentTodoList));
+                        tasksListAdapter.notifyDataSetChanged();
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -82,17 +95,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    static boolean isSetUp = false;
-    protected void setUpMockData() {
-        if (isSetUp) return;
-        isSetUp = true;
-        TodoList groceries = new TodoList("Groceries", "Buy Groceries");
-        groceries.tasks.add(new Task("Apple", "We're out of apples", groceries));
-        groceries.tasks.add(new Task("Banana", "Girlfriend wanted some", groceries));
-        TodoList toDo = new TodoList("ToDo", "What to do");
-        toDo.tasks.add(new Task("Clean Dog", "He smells", toDo));
-        toDo.tasks.add(new Task("Wash Car", "Damn thing is dirty", toDo));
-        todoListData.lists.add(groceries);
-        todoListData.lists.add(toDo);
-    }
 }
