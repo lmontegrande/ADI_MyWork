@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,7 +19,7 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
 
     TodoListData todoListData;
-    Button addListButton;
+    Button addListButton, helpButton;
     ListView listView;
     TodoListAdapter todoListAdapter;
     Context context;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         context = this;
         todoListData = TodoListData.getInstance();
         addListButton = (Button) findViewById(R.id.addListButton);
+        helpButton = (Button) findViewById(R.id.helpButton);
         listView = (ListView) findViewById(R.id.listsListView);
         setUpList();
         setButton();
@@ -46,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showDialog();
+            }
+        });
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Click list to navigate\nLong click list to delete", Toast.LENGTH_LONG).show();
             }
         });
     }
