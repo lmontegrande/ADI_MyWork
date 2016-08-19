@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Click list to navigate\nLong click list to delete", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Click list to navigate\nLong click list to delete", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         isSetUp = true;
         TodoList groceries = new TodoList("Groceries", "Buy Groceries");
         groceries.tasks.add(new Task("Apple", "We're out of apples", groceries));
-        groceries.tasks.add(new Task("Banana", "Girlfriend wanted some", groceries));
+        groceries.tasks.add(new Task("Banana", "Bobo wanted some", groceries));
         TodoList toDo = new TodoList("ToDo", "What to do");
         toDo.tasks.add(new Task("Clean Dog", "He smells", toDo));
         toDo.tasks.add(new Task("Wash Car", "Damn thing is dirty", toDo));

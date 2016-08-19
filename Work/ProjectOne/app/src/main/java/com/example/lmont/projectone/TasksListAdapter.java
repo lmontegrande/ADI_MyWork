@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -44,6 +45,7 @@ public class TasksListAdapter extends BaseAdapter {
     public View getView(final int i, View view, ViewGroup viewGroup) {
 
         ViewHolder viewHolder;
+        final Task thisTask = tasks.get(i);
 
         if(view == null){
             view = LayoutInflater.from(context).inflate(R.layout.list_list_item, viewGroup, false);
@@ -53,9 +55,19 @@ public class TasksListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        viewHolder.listName.setText(tasks.get(i).getName());
-        viewHolder.listDetail.setText(tasks.get(i).getAbout());
-        viewHolder.listDate.setText(String.format("%1$tA %1$tb %1$td %1$tY at %1$tI:%1$tM %1$Tp", tasks.get(i).getmCalendar()));
+        viewHolder.listName.setText(thisTask.getName());
+        viewHolder.listDetail.setText(thisTask.getAbout());
+        viewHolder.listDate.setText(String.format("%1$tA %1$tb %1$td %1$tY at %1$tI:%1$tM %1$Tp", thisTask.getmCalendar()));
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String message = thisTask.getName() + "\n" +
+                                thisTask.getAbout() + "\n" +
+                        String.format("Created On: %1$tA %1$tb %1$td %1$tY at %1$tI:%1$tM %1$Tp", thisTask.getmCalendar()) + "\n";
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
