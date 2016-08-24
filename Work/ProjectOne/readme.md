@@ -26,3 +26,10 @@ A simple android todo list that you can use to create todo lists... Until the ap
 - Data is persistant within a session.
 - User can delete items
 - Simple to use but very informative UI
+
+---
+<style>[alt=screenshot]{height:300px}</style>
+
+![screenshot](photos/pic1.png)
+![screenshot](photos/pic2.png)
+![screenshot](photos/pic3.png)
